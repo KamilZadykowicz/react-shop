@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Nunito Sans', sans-serif;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    &__menu{
+        
+    }
+    &__title{
+        font-size: 18px;
+        font-weight: 700;
+        color: #263238;
+    }
+    &__cart{
+        min-width: 24px;
+        position: relative;
+    }
+    &__num {
+        position: absolute;
+        font-size: 8px;
+        top: 0;
+        right: 0;
+        font-weight: 700;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: #F44336;
+        color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s;
+    }
+}
+
+.icon-bar {
+    width: 22px;
+    height: 2px;
+    display: block;
+    transition: all .2s;
+    margin-top: 4px;
+    background-color: #78909C;
+}
