@@ -1,0 +1,21 @@
+.quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__active {
+        color: #78909C;
+        width: 20px;
+        background-color: #EFEFEF;
+        text-align: center;
+    }
+    &__notactive {
+
+    }
+    &__number {
+        font-weight: 700;
+        color: #2C393F;
+        font-size: 12px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

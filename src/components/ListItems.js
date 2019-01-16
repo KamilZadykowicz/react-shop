@@ -11,9 +11,11 @@ const ListItems = props => {
             name={item.name}
             price={item.price}
             brand={item.brand}
-            addToCart={props.addToCart}
-            quantity={props.quantity}
+            quantity={item.quantity}
+            available={item.available}
             img={item.img}
+            addToCart={props.addToCart}
+            removeFromCart={props.removeFromCart}
         />
     ))
 

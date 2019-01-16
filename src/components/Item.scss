@@ -20,6 +20,7 @@
     &__flex {
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     &__price {
         font-weight: 700;
@@ -39,5 +40,10 @@
     }
     &__box {
         height: 112px;
+    }
+    &__available {
+        font-size: 10px;
+        color: #78909C;
+        font-weight: 700;
     }
 }

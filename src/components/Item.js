@@ -1,9 +1,9 @@
 import React from 'react';
 import img from '../img/1.jpg';
 import './Item.scss';
+import Quantity from './Quantity';
 
 const Item = props => {
-
     return (
         <div className="item">
             <div className="item__box">
@@ -14,8 +14,10 @@ const Item = props => {
                 <p className="item__brand">{props.brand}</p>
                 <div className="item__flex">
                     <p className="item__price">${props.price}</p>
-                    <p onClick={props.addToCart} className="item__btn">ADD TO CART</p>
+                    {props.quantity === 0 ?  <p onClick={() => props.addToCart(props.id)} className="item__btn">ADD TO CART</p> : <Quantity quantity={props.quantity} addToCart={props.addToCart} removeFromCart={props.removeFromCart} id={props.id}/>}
                 </div>
+                <p className="item__available">AVAILABLE: {props.available}</p>
+                
             </div>
         </div>
     )
