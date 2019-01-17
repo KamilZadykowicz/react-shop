@@ -16,12 +16,15 @@
     &__cart{
         min-width: 24px;
         position: relative;
+        &:hover {
+            cursor: pointer;
+        }
     }
     &__num {
         position: absolute;
         font-size: 8px;
         top: 0;
-        right: 0;
+        right: -8px;
         font-weight: 700;
         width: 14px;
         height: 14px;

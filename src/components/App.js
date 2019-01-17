@@ -91,15 +91,30 @@ class App extends Component {
     })
   }
 
+  handleClickCart = () => {
+    this.setState({
+      cartVisible: true
+    })
+  }
+
+  handleClickBack = () => {
+    this.setState({
+      cartVisible: false
+    })
+  }
+
 
   render() {
     return (
       <div>
-          <Header numberProducts={this.state.numberProducts}/>
+          <Header numberProducts={this.state.numberProducts} handleClickCart={this.handleClickCart}/>
 
-          <Cart items={this.state.items}/>
+          {this.state.cartVisible===true ? 
+          <Cart handleClickBack={this.handleClickBack} items={this.state.items}/> : 
+          <ListItems items={this.state.items} filtersVisible={this.state.filtersVisible} selectCategory={this.state.selectCategory} selectBrand={this.state.selectBrand} addToCart={this.handleAddToCart} removeFromCart={this.handleRemoveFromCart} handleChangeCategory={this.handleChangeCategory} handleChangeBrand={this.handleChangeBrand} handleClickFiltersVisible={this.handleClickFiltersVisible}/>}
+          
             
-          <ListItems items={this.state.items} filtersVisible={this.state.filtersVisible} selectCategory={this.state.selectCategory} selectBrand={this.state.selectBrand} addToCart={this.handleAddToCart} removeFromCart={this.handleRemoveFromCart} handleChangeCategory={this.handleChangeCategory} handleChangeBrand={this.handleChangeBrand} handleClickFiltersVisible={this.handleClickFiltersVisible}/>
+          
 
           <footer>&copy; 2019 SHOPP</footer>
       </div>
