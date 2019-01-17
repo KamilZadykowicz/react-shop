@@ -4,6 +4,8 @@
     padding-bottom: 8px;
     margin-bottom: 8px;
     border-bottom: 1px rgb(185, 220, 238) solid; 
+    width: 315px;
+    transition: all 1s;
     &__name {
         text-transform: uppercase;
         color: #263238;
@@ -36,7 +38,8 @@
         }
     }
     &__description {
-        padding-left: 8px;
+        width: 100%;
+        padding-left: 16px;
     }
     &__box {
         height: 112px;
@@ -45,5 +48,9 @@
         font-size: 10px;
         color: #78909C;
         font-weight: 700;
+    }
+    &__img {
+        width: 112px;
+        height: 112px;
     }
 }

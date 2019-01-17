@@ -12,15 +12,21 @@ class App extends Component {
         {id: 3, name: "France Authentic Jersey 2018", brand: "nike", category: "tshirt", img:"../img/3.jpg", price: 140, available: 25, quantity: 0 },
         {id: 4, name: "Mexico Authentic Jersey 2018", brand: "adidas", category: "tshirt", img:"../img/4.jpg", price: 190, available: 15, quantity: 0 },
         {id: 5, name: "Portugal Authentic Jersey 2018", brand: "nike", category: "tshirt", img:"../img/5.jpg", price: 99, available: 20, quantity: 0 },
+        {id: 6, name: "Nike Blue Shorts 2018", brand: "nike", category: "shorts", img:"../img/6.jpg", price: 39, available: 5, quantity: 0 },
+        {id: 7, name: "Nike run shorts 2018", brand: "nike", category: "shorts", img:"../img/7.jpg", price: 28, available: 8, quantity: 0 },
+        {id: 8, name: "Adidas black shorts 2018", brand: "adidas", category: "shorts", img:"../img/8.jpg", price: 45, available: 4, quantity: 0 },
+        {id: 9, name: "New 2019 model Adidas shorts", brand: "adidas", category: "shorts", img:"../img/9.jpg", price: 29, available: 2, quantity: 0 },
         
     ],
     toPay: 0,
     numberProducts: 0,
     selectCategory: "all",
+    selectBrand: "all",
+    filtersVisible: false,
   }
 
   handleAddToCart = (id) => {
-    
+    let numberProducts = this.state.numberProducts
     const items = this.state.items.map(item => {
 
       if(id === item.id) {
@@ -28,13 +34,14 @@ class App extends Component {
           if(item.available > 0) {
               item.quantity = item.quantity + 1
               item.available = item.available -1
+              numberProducts= this.state.numberProducts + 1
           }
       }
       return item
     })
 
     this.setState({
-      numberProducts: this.state.numberProducts + 1,
+      numberProducts,
       items
     })
   }
@@ -58,11 +65,39 @@ class App extends Component {
     })
   }
 
+  handleChangeCategory = event => {
+    console.log(event.target.value)
+    const selectCategory = event.target.value
+    this.setState({
+      selectCategory,
+      filtersVisible: false,
+    })
+  }
+
+  handleChangeBrand = (event) => {
+    console.log(event.target.value)
+    const selectBrand = event.target.value
+    this.setState({
+      selectBrand,
+      filtersVisible: false,
+    })
+  }
+
+  handleClickFiltersVisible = () => {
+    this.setState({
+      filtersVisible: !this.state.filtersVisible
+    })
+  }
+
+
   render() {
     return (
       <div>
           <Header numberProducts={this.state.numberProducts}/>
-          <ListItems items={this.state.items} selectCategory={this.state.selectCategory} addToCart={this.handleAddToCart} removeFromCart={this.handleRemoveFromCart}/>
+            
+          <ListItems items={this.state.items} filtersVisible={this.state.filtersVisible} selectCategory={this.state.selectCategory} selectBrand={this.state.selectBrand} addToCart={this.handleAddToCart} removeFromCart={this.handleRemoveFromCart} handleChangeCategory={this.handleChangeCategory} handleChangeBrand={this.handleChangeBrand} handleClickFiltersVisible={this.handleClickFiltersVisible}/>
+
+          <footer>&copy; 2019 SHOPP</footer>
       </div>
     );
   }
