@@ -12,7 +12,7 @@ const Header = props => {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>                        
                     </div>
-                    <h4 className="header__title">FIFA World Cup Kits</h4>
+                    <h4 className="header__title">SHOPP The Best Brands</h4>
                     <div className="header__cart">
                         <img className="header__cart--img" src={shoppingCart} alt=""/>
                         {props.numberProducts>0 && <p className="header__num">{props.numberProducts}</p>}

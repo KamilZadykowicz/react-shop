@@ -10,6 +10,12 @@ body {
   box-sizing: border-box;
 }
 
+header {
+  border-bottom: 1px rgba(38, 50, 56, 0.24) solid;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
 footer {
   font-size: 10px;
   text-align: center;

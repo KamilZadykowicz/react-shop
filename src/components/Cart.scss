@@ -1,0 +1,12 @@
+.cart {
+    &__title {
+        color: #78909C;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+    &__summary {
+        padding: 8px;
+        background-color: #F7F9F9;
+    }
+}

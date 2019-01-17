@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Header from './Header';
+import Cart from './Cart';
 import ListItems from './ListItems';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
     selectCategory: "all",
     selectBrand: "all",
     filtersVisible: false,
+    cartVisible: false,
   }
 
   handleAddToCart = (id) => {
@@ -94,6 +96,8 @@ class App extends Component {
     return (
       <div>
           <Header numberProducts={this.state.numberProducts}/>
+
+          <Cart items={this.state.items}/>
             
           <ListItems items={this.state.items} filtersVisible={this.state.filtersVisible} selectCategory={this.state.selectCategory} selectBrand={this.state.selectBrand} addToCart={this.handleAddToCart} removeFromCart={this.handleRemoveFromCart} handleChangeCategory={this.handleChangeCategory} handleChangeBrand={this.handleChangeBrand} handleClickFiltersVisible={this.handleClickFiltersVisible}/>
 
