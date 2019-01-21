@@ -17,7 +17,7 @@ const CartItem = props => {
                     <h4 className="cart-item__name">{props.name}</h4>
                     <p className="cart-item__brand">{props.brand}</p>
                 </div>
-                <img src={bin} alt="" className="cart-item__bin"/>
+                <img onClick={() => props.handleTotalRemoveFromCart(props.id)} src={bin} alt="" className="cart-item__bin"/>
             </div>
 
 

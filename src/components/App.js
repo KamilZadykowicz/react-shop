@@ -23,6 +23,7 @@ class App extends Component {
     numberProducts: 0,
     selectCategory: "all",
     selectBrand: "all",
+    selectSort: "default",
     filtersVisible: false,
     cartVisible: false,
   }
@@ -67,21 +68,47 @@ class App extends Component {
     })
   }
 
+  handleTotalRemoveFromCart = (id) => {
+    let numberProducts = this.state.numberProducts
+    const items = this.state.items.map(item => {
+
+      if(id === item.id) {
+        
+          if(item.quantity > 0) {
+              numberProducts = numberProducts - item.quantity
+              item.available = item.available + item.quantity
+              item.quantity = 0
+          }
+      }
+      return item
+    })
+
+    this.setState({
+      numberProducts,
+      items
+    })
+  }
+
   handleChangeCategory = event => {
-    console.log(event.target.value)
     const selectCategory = event.target.value
     this.setState({
       selectCategory,
-      filtersVisible: false,
+      // filtersVisible: false,
     })
   }
 
   handleChangeBrand = (event) => {
-    console.log(event.target.value)
     const selectBrand = event.target.value
     this.setState({
       selectBrand,
-      filtersVisible: false,
+      // filtersVisible: false,
+    })
+  }
+
+  handleChangeSort = (event) => {
+    const selectSort = event.target.value
+    this.setState({
+      selectSort,
     })
   }
 
@@ -110,8 +137,8 @@ class App extends Component {
           <Header numberProducts={this.state.numberProducts} handleClickCart={this.handleClickCart}/>
 
           {this.state.cartVisible===true ? 
-          <Cart handleClickBack={this.handleClickBack} items={this.state.items}/> : 
-          <ListItems items={this.state.items} filtersVisible={this.state.filtersVisible} selectCategory={this.state.selectCategory} selectBrand={this.state.selectBrand} addToCart={this.handleAddToCart} removeFromCart={this.handleRemoveFromCart} handleChangeCategory={this.handleChangeCategory} handleChangeBrand={this.handleChangeBrand} handleClickFiltersVisible={this.handleClickFiltersVisible}/>}
+          <Cart handleClickBack={this.handleClickBack} items={this.state.items} addToCart={this.handleAddToCart} removeFromCart={this.handleRemoveFromCart} handleTotalRemoveFromCart={this.handleTotalRemoveFromCart}/> : 
+          <ListItems items={this.state.items} filtersVisible={this.state.filtersVisible} selectCategory={this.state.selectCategory} selectBrand={this.state.selectBrand} selectSort={this.state.selectSort} addToCart={this.handleAddToCart} removeFromCart={this.handleRemoveFromCart} handleChangeCategory={this.handleChangeCategory} handleChangeBrand={this.handleChangeBrand} handleChangeSort={this.handleChangeSort} handleClickFiltersVisible={this.handleClickFiltersVisible} />}
           
             
           

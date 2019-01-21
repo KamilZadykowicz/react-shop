@@ -39,11 +39,103 @@ const ListItems = props => {
         }
     }
 
+    const itemsSort = () => {
+        if(props.selectSort === "default") {
+            bubbleSortID(items)
+            items.reverse()
+        }
+        else if(props.selectSort === "lowestPrice")
+        {
+            bubbleSortPrice(items)
+            items.reverse()
+        }
+        else if(props.selectSort === "highestPrice")
+        {
+            bubbleSortPrice(items)
+        }
+        else if(props.selectSort === "nameAZ")
+        {
+            bubbleSortName(items)
+            items.reverse()
+        }
+        else if(props.selectSort === "nameZA")
+        {
+            bubbleSortName(items)
+        }
+    }
+
+    const bubbleSortID = (a) =>
+    {
+        var swapp;
+        var n = a.length-1;
+        
+        do {
+            swapp = false;
+            for (var i=0; i < n; i++)
+            {
+                if (a[i].id < a[i+1].id)
+                {
+                var temp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = temp;
+                swapp = true;
+                }
+            }
+            n--;
+        } while (swapp);
+    return a; 
+    }
+
+    const bubbleSortPrice = (a) =>
+    {
+        var swapp;
+        var n = a.length-1;
+        
+        do {
+            swapp = false;
+            for (var i=0; i < n; i++)
+            {
+                if (a[i].price < a[i+1].price)
+                {
+                var temp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = temp;
+                swapp = true;
+                }
+            }
+            n--;
+        } while (swapp);
+    return a; 
+    }
+
+    const bubbleSortName = (a) =>
+    {
+        var swapp;
+        var n = a.length-1;
+        
+        do {
+            swapp = false;
+            for (var i=0; i < n; i++)
+            {
+                if (a[i].name < a[i+1].name)
+                {
+                var temp = a[i];
+                a[i] = a[i+1];
+                a[i+1] = temp;
+                swapp = true;
+                }
+            }
+            n--;
+        } while (swapp);
+    return a; 
+    }
+
     const itemsCategory = () => {
         
         switch(props.selectCategory) {
           case "all" :
             itemsBrands()
+            itemsSort()
             return items.map(item => (
                     <Item 
                         key={item.id}
@@ -62,6 +154,7 @@ const ListItems = props => {
           case "tshirt" :
             items = items.filter(item => item.category === "tshirt")
             itemsBrands()
+            itemsSort()
             return items.map(item => (
                 <Item 
                     key={item.id}
@@ -80,6 +173,7 @@ const ListItems = props => {
           case "shorts" :
             items = items.filter(item => item.category === "shorts")
             itemsBrands()
+            itemsSort()
             return items.map(item => (
                 <Item 
                     key={item.id}
@@ -143,9 +237,20 @@ const ListItems = props => {
                     </div>
                 </div>
 
+
+
+
+
                 <div className="filters">
                     <p onClick={props.handleClickFiltersVisible} className="filters__btn">FILTER</p>
-                    <p className="filters__btn">SORT</p>
+                    <p onClick={props.handleClickSortVisible} className="filters__btn">SORT:</p>
+                    <select onChange={props.handleChangeSort} value={props.selectSort} name="category" id="category" className="sort-select">
+                        <option value="default">default</option>
+                        <option value="lowestPrice">Lowest price</option>
+                        <option value="highestPrice">Highest price</option>
+                        <option value="nameAZ">Name A -> Z</option>
+                        <option value="nameZA">Name Z -> A</option>
+                    </select>
                 </div>
 
                 {itemsCategory()}

@@ -48,14 +48,14 @@ const Cart = props => {
                 addToCart={props.addToCart}
                 removeFromCart={props.removeFromCart}
                 photo={photos[item.id-1].photo}
+                handleTotalRemoveFromCart={props.handleTotalRemoveFromCart}
             />
-        
-
             
         ))
-        
-        
+         
     }
+
+
 
     return (
         <div className="cart">
