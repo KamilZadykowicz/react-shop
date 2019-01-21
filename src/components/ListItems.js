@@ -11,6 +11,15 @@ import img6 from '../img/6.jpg';
 import img7 from '../img/7.jpg';
 import img8 from '../img/8.jpg';
 import img9 from '../img/9.jpg';
+import img10 from '../img/shoes1.jpg';
+import img11 from '../img/shoes2.jpg';
+import img12 from '../img/shoes3.jpg';
+import img13 from '../img/shoes4.jpg';
+import img14 from '../img/shoes5.jpg';
+import img15 from '../img/shoes6.jpg';
+import img16 from '../img/shoes7.jpg';
+import img17 from '../img/shoes8.jpg';
+import img18 from '../img/shoes9.jpg';
 
 const photos = [
     {photo: img1},
@@ -22,6 +31,37 @@ const photos = [
     {photo: img7},
     {photo: img8},
     {photo: img9},
+    {photo: img10},
+    {photo: img11},
+    {photo: img12},
+    {photo: img13},
+    {photo: img14},
+    {photo: img15},
+    {photo: img16},
+    {photo: img17},
+    {photo: img18},
+    {photo: img17},
+    {photo: img18},
+    {photo: img1},
+    {photo: img2},
+    {photo: img3},
+    {photo: img4},
+    {photo: img5},
+    {photo: img6},
+    {photo: img7},
+    {photo: img8},
+    {photo: img9},
+    {photo: img10},
+    {photo: img11},
+    {photo: img12},
+    {photo: img13},
+    {photo: img14},
+    {photo: img15},
+    {photo: img16},
+    {photo: img17},
+    {photo: img18},
+    {photo: img17},
+    {photo: img18},
 ]
 
 const ListItems = props => {
@@ -36,6 +76,9 @@ const ListItems = props => {
         }
         else if(props.selectBrand === "nike") {
             items = items.filter(item => item.brand === "nike")
+        }
+        else if(props.selectBrand === "reebok") {
+            items = items.filter(item => item.brand === "reebok")
         }
     }
 
@@ -189,6 +232,25 @@ const ListItems = props => {
                     photo={photos[item.id-1].photo}
                 />
             ))
+          case "shoes" :
+            items = items.filter(item => item.category === "shoes")
+            itemsBrands()
+            itemsSort()
+            return items.map(item => (
+                <Item 
+                    key={item.id}
+                    id={item.id}
+                    name={item.name}
+                    price={item.price}
+                    brand={item.brand}
+                    quantity={item.quantity}
+                    available={item.available}
+                    img={item.img}
+                    addToCart={props.addToCart}
+                    removeFromCart={props.removeFromCart}
+                    photo={photos[item.id-1].photo}
+                />
+            ))
           default:
             return "brak danych"
         }
@@ -225,6 +287,7 @@ const ListItems = props => {
                             <option value="all">All</option>
                             <option value="tshirt">T-shirts</option>
                             <option value="shorts">Shorts</option>
+                            <option value="shoes">Shoes</option>
                         </select>
                     </div>
                     <div>
@@ -233,6 +296,7 @@ const ListItems = props => {
                             <option value="all">All</option>
                             <option value="nike">Nike</option>
                             <option value="adidas">Adidas</option>
+                            <option value="reebok">Reebok</option>
                         </select>
                     </div>
                 </div>

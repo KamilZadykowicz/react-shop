@@ -11,6 +11,15 @@ import img6 from '../img/6.jpg';
 import img7 from '../img/7.jpg';
 import img8 from '../img/8.jpg';
 import img9 from '../img/9.jpg';
+import img10 from '../img/shoes1.jpg';
+import img11 from '../img/shoes2.jpg';
+import img12 from '../img/shoes3.jpg';
+import img13 from '../img/shoes4.jpg';
+import img14 from '../img/shoes5.jpg';
+import img15 from '../img/shoes6.jpg';
+import img16 from '../img/shoes7.jpg';
+import img17 from '../img/shoes8.jpg';
+import img18 from '../img/shoes9.jpg';
 
 const photos = [
     {photo: img1},
@@ -22,6 +31,17 @@ const photos = [
     {photo: img7},
     {photo: img8},
     {photo: img9},
+    {photo: img10},
+    {photo: img11},
+    {photo: img12},
+    {photo: img13},
+    {photo: img14},
+    {photo: img15},
+    {photo: img16},
+    {photo: img17},
+    {photo: img18},
+    {photo: img17},
+    {photo: img18},
 ]
 
 // let totalPrice = 0
@@ -55,7 +75,14 @@ const Cart = props => {
          
     }
 
-
+    const totalPriceFn = () => {
+        let totalPrice = 0
+        for (var i=0; i < items.length; i++)
+            {
+                totalPrice = totalPrice + (items[i].quantity * items[i].price)
+            }
+            return totalPrice
+    }
 
     return (
         <div className="cart">
@@ -68,7 +95,7 @@ const Cart = props => {
                 <div className="cart__summary">
                     <div className="cart__flex">
                         <p className="cart__p">Subtotal:</p>
-                        <p className="cart__p">&0</p>
+                        <p className="cart__p">&{totalPriceFn()}</p>
                     </div>
                     <div className="cart__flex">
                         <p className="cart__p">Shipping:</p>
@@ -76,7 +103,7 @@ const Cart = props => {
                     </div>
                     <div className="cart__flex">
                         <p className="cart__total">Total:</p>
-                        <p className="cart__total">&0</p>
+                        <p className="cart__total">&{totalPriceFn()}</p>
                     </div>
                 </div>
                 <div className="cart__flex">
