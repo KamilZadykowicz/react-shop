@@ -4,12 +4,9 @@
     align-items: center;
     font-family: 'Nunito Sans', sans-serif;
     padding-top: 10px;
-    position: relative;
     // margin-bottom: 20px;
     &__menu{
-        &:hover {
-            cursor: pointer;
-        }
+        
     }
     &__title{
         font-size: 18px;
@@ -21,12 +18,6 @@
         position: relative;
         &:hover {
             cursor: pointer;
-        }
-        &--img {
-            width: 24px;
-            @media only screen and (min-width: 992px) {
-                width: 30px;
-            }
         }
     }
     &__num {
@@ -45,11 +36,6 @@
         align-items: center;
         transition: all 0.3s;
     }
-}
-
-.navigation {
-    position: absolute;
-    display: none;
 }
 
 .icon-bar {

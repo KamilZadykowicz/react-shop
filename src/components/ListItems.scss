@@ -2,11 +2,6 @@
     position: relative;
     z-index: 5;
     // display: none;
-    @media only screen and (min-width: 992px) {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
 }
 
 .category {
@@ -18,20 +13,11 @@
         background-color: rgba(219, 209, 209, 0.95);
         padding: 8px 16px;
         transition: all 1s;
-        z-index: 6;
-        font-size: 16px;
         &--hide {
             display: none;
         }
         &--show {
             display: block;
-            @media only screen and (min-width: 992px) {
-                display: flex;
-                font-size: 18px;
-                div {
-                    margin-right: 20px;
-                }
-            }
         }
     }
     &__close {
@@ -43,11 +29,6 @@
         height: 20px;
         font-weight: 900;
         text-align: center;
-        transition: 0.3s transform;
-        &:hover {
-            cursor: pointer;
-            transform: scale(1.05);
-        }
     }
 }
 
@@ -71,7 +52,4 @@
     outline: none;
     border-radius: 5px;
     font-size: 10px;
-    @media only screen and (min-width: 992px) {
-        font-size: 12px;
-    }
 }
