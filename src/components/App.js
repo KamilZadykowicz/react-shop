@@ -8,7 +8,7 @@ class App extends Component {
 
   state = { 
     items: [
-        {id: 1, name: "Argentina Authentic Jersey 2018", brand: "adidas", category: "tshirt", img:"../img/1.jpg", price: 130, available: 0, quantity: 0 },
+        {id: 1, name: "Argentina Authentic Jersey 2018", brand: "adidas", category: "tshirt", img:"../img/1.jpg", price: 130, available: 10, quantity: 0 },
         {id: 2, name: "Brasil Authentic Jersey 2018", brand: "nike", category: "tshirt", img:"../img/2.jpg", price: 165, available: 20, quantity: 0 },
         {id: 3, name: "France Authentic Jersey 2018", brand: "nike", category: "tshirt", img:"../img/3.jpg", price: 140, available: 25, quantity: 0 },
         {id: 4, name: "Mexico Authentic Jersey 2018", brand: "adidas", category: "tshirt", img:"../img/4.jpg", price: 190, available: 15, quantity: 0 },
