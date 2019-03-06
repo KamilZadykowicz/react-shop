@@ -7,11 +7,6 @@ const Header = props => {
         <header>
             <div className="container">
                 <div className="header">
-                    <nav className="navigation">
-                        <p className="navigation__item">FOR HIM</p>
-                        <p className="navigation__item">FOR HER</p>
-                        <p className="navigation__item">FOR KIDS</p>
-                    </nav>
                     <div className="header__menu">
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
