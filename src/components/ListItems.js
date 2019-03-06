@@ -275,6 +275,19 @@ const ListItems = props => {
 
     return(
         <div className="container">
+
+            <div className="filters">
+                <p onClick={props.handleClickFiltersVisible} className="filters__btn">FILTER</p>
+                <p onClick={props.handleClickSortVisible} className="filters__btn">SORT:</p>
+                <select onChange={props.handleChangeSort} value={props.selectSort} name="category" id="category" className="sort-select">
+                    <option value="default">default</option>
+                    <option value="lowestPrice">Lowest price</option>
+                    <option value="highestPrice">Highest price</option>
+                    <option value="nameAZ">Name A -> Z</option>
+                    <option value="nameZA">Name Z -> A</option>
+                </select>
+            </div>
+
             <div className="main-box">
 
 
@@ -305,17 +318,7 @@ const ListItems = props => {
 
 
 
-                <div className="filters">
-                    <p onClick={props.handleClickFiltersVisible} className="filters__btn">FILTER</p>
-                    <p onClick={props.handleClickSortVisible} className="filters__btn">SORT:</p>
-                    <select onChange={props.handleChangeSort} value={props.selectSort} name="category" id="category" className="sort-select">
-                        <option value="default">default</option>
-                        <option value="lowestPrice">Lowest price</option>
-                        <option value="highestPrice">Highest price</option>
-                        <option value="nameAZ">Name A -> Z</option>
-                        <option value="nameZA">Name Z -> A</option>
-                    </select>
-                </div>
+                
 
                 {itemsCategory()}
             </div>

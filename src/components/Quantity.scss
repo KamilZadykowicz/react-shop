@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-right: 10px;
     &__active {
         color: #2C393F;
         width: 20px;
@@ -25,5 +26,8 @@
         font-size: 12px;
         margin-left: 10px;
         margin-right: 10px;
+        @media only screen and (min-width: 992px) {
+            font-size: 14px;
+		}
     }
 }
