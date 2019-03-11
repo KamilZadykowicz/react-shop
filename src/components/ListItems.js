@@ -84,88 +84,64 @@ const ListItems = props => {
 
     const itemsSort = () => {
         if(props.selectSort === "default") {
-            bubbleSortID(items)
+            bubbleSort(items, "id")
             items.reverse()
         }
         else if(props.selectSort === "lowestPrice")
         {
-            bubbleSortPrice(items)
+            bubbleSort(items, "price")
             items.reverse()
         }
         else if(props.selectSort === "highestPrice")
         {
-            bubbleSortPrice(items)
+            bubbleSort(items, "price")
         }
         else if(props.selectSort === "nameAZ")
         {
-            bubbleSortName(items)
+            bubbleSort(items, "name")
             items.reverse()
         }
         else if(props.selectSort === "nameZA")
         {
-            bubbleSortName(items)
+            bubbleSort(items, "name")
         }
     }
 
-    const bubbleSortID = (a) =>
+    const bubbleSort = (a, sortBy) =>
     {
-        var swapp;
-        var n = a.length-1;
+        let swapp;
+        let n = a.length-1;
         
         do {
             swapp = false;
-            for (var i=0; i < n; i++)
+            for (let i=0; i < n; i++)
             {
-                if (a[i].id < a[i+1].id)
-                {
-                var temp = a[i];
-                a[i] = a[i+1];
-                a[i+1] = temp;
-                swapp = true;
+                if(sortBy === "id") {
+                    if (a[i].id < a[i+1].id)
+                    {
+                    const temp = a[i];
+                    a[i] = a[i+1];
+                    a[i+1] = temp;
+                    swapp = true;
+                    }
                 }
-            }
-            n--;
-        } while (swapp);
-    return a; 
-    }
-
-    const bubbleSortPrice = (a) =>
-    {
-        var swapp;
-        var n = a.length-1;
-        
-        do {
-            swapp = false;
-            for (var i=0; i < n; i++)
-            {
-                if (a[i].price < a[i+1].price)
-                {
-                var temp = a[i];
-                a[i] = a[i+1];
-                a[i+1] = temp;
-                swapp = true;
+                else if(sortBy === "name") {
+                    if (a[i].name < a[i+1].name)
+                    {
+                    const temp = a[i];
+                    a[i] = a[i+1];
+                    a[i+1] = temp;
+                    swapp = true;
+                    }
                 }
-            }
-            n--;
-        } while (swapp);
-    return a; 
-    }
-
-    const bubbleSortName = (a) =>
-    {
-        var swapp;
-        var n = a.length-1;
-        
-        do {
-            swapp = false;
-            for (var i=0; i < n; i++)
-            {
-                if (a[i].name < a[i+1].name)
-                {
-                var temp = a[i];
-                a[i] = a[i+1];
-                a[i+1] = temp;
-                swapp = true;
+                else if(sortBy === "price") {
+                    if (a[i].price < a[i+1].price)
+                    {
+                    const temp = a[i];
+                    a[i] = a[i+1];
+                    a[i+1] = temp;
+                    swapp = true;
+                    }
                 }
             }
             n--;
